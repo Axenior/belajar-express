@@ -1,58 +1,48 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <title><%= title %></title>
-</head>
-<body class="container">
-    <h1>Home</h1>
-
-    <a href="/" class="btn btn-primary">Home</a>
-    <a href="/about" class="btn btn-primary">About</a>
-    <a href="/contact" class="btn btn-primary">Contact Us</a>
-    <a href="/prodi" class="btn btn-primary">Prodi</a>
-    <p>Ini halaman home</p>
-
-    <h4>Berita Terkini</h4>
-    <% berita.forEach(data => { %>
-        <h5><%= data.judul %></h5>
-        <p><%= data.isi %></p>
-    <% }) %>
-
-    <div id="mahasiswa">
-        <h4>Data Mahasiswa</h4>
+<h1>Home</h1>
+<p>Ini halaman home</p>
+<div id="carouselExampleCaptions" class="carousel slide">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active" style="height: 480px;">
+      <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="d-block" style="width: 100%;" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>First slide label</h5>
+        <p>Some representative placeholder content for the first slide.</p>
+      </div>
     </div>
-     <script>
-            const url = 'http://localhost:3000/mahasiswa'; // Replace with your API URL
-            
-            fetch(url)
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Network response was not ok');
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    let mahasiswa = document.getElementById('mahasiswa');
-                    console.log(JSON.stringify(data, null, 2));
+    <div class="carousel-item" style="height: 480px;">
+      <img src="https://media.istockphoto.com/id/1363381590/id/foto/pemandangan-alpine-yang-indah-dengan-danau-gunung-dan-sungai-gunung-di-lembah-dengan-hutan.jpg?s=2048x2048&w=is&k=20&c=VD6v8kLI-qJNYHufFWthW6pUMrHwCKF49mClPqa4eLI=" class="d-block" style="width: 100%;" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Second slide label</h5>
+        <p>Some representative placeholder content for the second slide.</p>
+      </div>
+    </div>
+    <div class="carousel-item" style="height: 480px;">
+      <img src="https://media.istockphoto.com/id/1165741214/id/foto/badai-salju-masuk.jpg?s=2048x2048&w=is&k=20&c=u5B4gGP1lX4Uakwq2UVe1geM69NPe3BQRPLnUR6kQEU=" class="d-block" style="width: 100%;" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Third slide label</h5>
+        <p>Some representative placeholder content for the third slide.</p>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
 
-                    data.data.forEach(item => {
-                        // Create a new list item
-                        // listItem.textContent = JSON.stringify(item, null, 2); // You can customize this format
-                        const listItem = `
-                            <li>Nama = ${item.nama} (${item.npm})</li>
-                        `
-                        mahasiswa.innerHTML += listItem
-                    });
-                })
-                .catch(error => {
-                    console.error('Error fetching data:', error);
-                    console.log('Error fetching data');
-                });
-    </script>
-</body>
-</html>
+<h4>Berita Terkini</h4>
+<% berita.forEach(data => { %>
+    <h5><%= data.judul %></h5>
+    <p><%= data.isi %></p>
+<% }) %>
+
 
