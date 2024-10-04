@@ -40,9 +40,14 @@
 </div>
 
 <h4>Berita Terkini</h4>
-<% berita.forEach(data => { %>
-    <h5><%= data.judul %></h5>
-    <p><%= data.isi %></p>
-<% }) %>
+<div class="row">
+  <% berita.forEach(data => { %>
+    <div class="col">
+      <h5><%= data.judul %></h5>
+      <p><%= data.isi %></p>
+      <button class="btn btn-primary">Lihat Berita</button>
+    </div>
+  <% }) %>
+</div>
 
 
